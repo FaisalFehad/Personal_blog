@@ -14,6 +14,8 @@ gem 'friendly_id', '~> 5.1'
 
 
 group :development, :test do
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'binding_of_caller', '~> 0.7.2'
   gem 'byebug'
   gem 'capybara', '~> 2.7', '>= 2.7.1'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'

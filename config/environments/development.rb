@@ -1,3 +1,6 @@
+# For better error to work on Vagrant VM
+BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -15,7 +18,7 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
+config.consider_all_requests_local
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
