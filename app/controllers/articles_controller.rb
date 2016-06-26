@@ -17,16 +17,16 @@ class ArticlesController < ApplicationController
     end
 
     def show
-      @article = Article.friendly.find(params[:id])
+      find_article
     end
 
     def edit
-      @article = Article.friendly.find(params[:id])
+      find_article
     end
 
     def update
-      @article = Article.new.friendly.find(params[:id])
-      if @article.update(params[:article].permit(:title, :content))
+      @article = Article.find_by_slug(params[:id])
+      if @article.update(article_params)
         redirect_to @article
       else
         render 'edit'
