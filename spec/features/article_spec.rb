@@ -1,16 +1,18 @@
 require 'rails_helper'
+# The Article from class
+require_relative '../support/ArticelForm.rb'
+feature "Articles can be posted and edited" do
+  # initializing the ArticleForm class 
+  let(:article_form) {ArticleForm.new}
 
-feature "Create a post" do
-  scenario  "Visit the home page and post an article" do
-    visit '/'
-    click_link('New Article')
-    fill_in("Title", with: "foo")
-    fill_in("Content", with: "bar baz")
-    click_on("Create Article")
-
+  scenario 'Visit the home page, post an article then edit it' do
+    # Create an article first
+    article_form.visit_home_page.create_an_article
+    # Then Edits the article
+    article_form.edit_an_article
+    # Go back to the home page to verify the changes
     visit('/')
-    expect(page).to have_text("foo")
-    expect(page).to have_text("bar baz")
-
+    expect(page).to have_content('Changed title')
+    expect(page).to have_text("My content")
   end
 end
