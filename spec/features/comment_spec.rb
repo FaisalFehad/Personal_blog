@@ -1,22 +1,30 @@
 require 'rails_helper'
 
+# The Article from class
 require_relative '../support/ArticelForm.rb'
+# The User class to use login methods
+require_relative '../support/User.rb'
+
+
 feature "Can leave comments on articles" do
-  # initializing the ArticleForm class
+  # initializing the classes
   let(:article_form) {ArticleForm.new}
+  let(:user) {User.new}
 
   scenario 'Visit the home page, post an article then edit it' do
-    # Create an article first
-    article_form.visit_home_page.create_an_article
+    # A user needs to have an account to be able to post articles
+    user.sign_up
+    # Create an article
+    article_form.create_an_article
     # View the article
-    visit('/articles/my-title/')
+    #visit('/articles/my-title/')
     # leave a comment
-    fill_in('Name', with:'user_name')
+    fill_in('Name', with:'My name')
     fill_in('Comment', with: 'comment')
     click_on('Post')
     # Verify
     visit('/articles/my-title/')
-    expect(page).to have_content('user_name')
+    expect(page).to have_content('My name')
     expect(page).to have_content('comment')
   end
 end
