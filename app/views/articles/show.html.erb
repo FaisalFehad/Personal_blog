@@ -2,3 +2,8 @@
 <p>
   <%= @article.content %>
 </p>
+
+<h3><%= pluralize(@article.comments.count, 'comment') %></h3>
+
+<%= render @article.comments %>
+<%= render 'comments/form' %>
