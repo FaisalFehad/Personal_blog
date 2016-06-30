@@ -3,8 +3,10 @@ class CommentsController < ApplicationController
   def create
     @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.create(comments_params)
-
-    redirect_to article_path(@article)
+      if @comment.save
+        CommentMailer.comment_created(@comment, @article).deliver
+        redirect_to article_path(@article)
+      end
   end
 
   def destroy
