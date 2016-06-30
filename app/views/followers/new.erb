@@ -1,0 +1,11 @@
+<h3> Stay up tp date with my new articles </h3>
+<p> You will be sent an email whenever a new article was posted </p>
+<%= form_for @follower do |f| %>
+  <%= f.label :name, "Your Name:" %>
+  <%= f.text_field :name %>
+<br>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+<br>
+  <%= f.submit('Follow me')  %>
+<% end %>
