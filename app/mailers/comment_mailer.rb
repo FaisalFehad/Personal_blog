@@ -4,7 +4,7 @@ class CommentMailer < ActionMailer::Base
     @comment = comment
     @article = article
 
-    mail( to: 'faisalfehad@gmail.com' ,
+    mail( to: @article.user.email ,
           from:'no_reply@gmail.com' ,
           subject:'A comment on your post.')
   end
