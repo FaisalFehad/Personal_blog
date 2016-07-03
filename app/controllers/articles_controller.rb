@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
       if @article.save
         redirect_to @article
         @follower = Follower.all
-        ArticleMailer.article_created(@follower, @article).deliver
+        UserNotifierMailer.send_article_created_email(@follower, @article).deliver
       else
         render 'new'
       end

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.create(comments_params)
       if @comment.save
-        CommentMailer.comment_created(@comment, @article).deliver
+        UserNotifierMailer.send_comment_created_email(@comment, @article).deliver
         redirect_to article_path(@article)
       end
   end

@@ -1,0 +1,7 @@
+<h1> <%= "An new article titled #{@article.title} has been created" %></h1>
+  <p>
+    The article says:
+    <td><%= truncate(@article.content, length:125) %></td>
+  </p>
+<br>
+  <%= link_to "Read the full article?", @article %>
