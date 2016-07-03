@@ -1,2 +1,4 @@
 <h1> The user <%= "#{@comment.name}" %> left a comment on your post </h1>
 <p> <%= "#{@comment.name} Says #{@comment.body} on your post #{@article.title}" %> </p>
+  <br>
+    <%= link_to "Go to the article?", @article %>
