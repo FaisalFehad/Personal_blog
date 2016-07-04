@@ -3,5 +3,9 @@
     The article says:
     <td><%= truncate(@article.content, length:125) %></td>
   </p>
+  <p><%= link_to "Read the full article?", @article %></p>
+
 <br>
-  <%= link_to "Read the full article?", @article %>
+  <p><small>If you no longer wish to receive emails from my personal blog,
+  you can <%= link_to 'Unfollow', unfollow_url(id: @follower.token) %>
+  here.</small></p>
