@@ -9,9 +9,9 @@ class UserNotifierMailer < ActionMailer::Base
           subject: 'A new comment on your post.' )
   end
 
-
-def send_article_created_email(follower, article)
+  def send_article_created_email(follower, article)
     @article = article
+    
     follower.each do |f|
       @follower = f
       mail to:       f.email,
