@@ -9,6 +9,14 @@ class FollowersController < ApplicationController
     @follower.save
   end
 
+  def destroy
+    @follower = Follower.where(token: params[:id]).first
+    if @follower.destroy
+    else
+      # send an error notice
+    end
+  end
+
   private
 
   def follower_params
