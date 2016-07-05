@@ -1,10 +1,18 @@
 
-<% @Articles.each do |article| %>
-  <h2><%= link_to article.title, article %></h2>
-<br>
-  <p><%= article.content %></p>
-<br>
-  <%= link_to "Edit", edit_article_path(article) %>
-  <%= link_to "Delete", articles_path(article), method: :delete, data: { confirm: "You are attempting to delete the post. Click 'Ok' to delete." } %>
-<% end %>
-<br>
+<div class="wrapper">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-ms-12">
+          <% @Articles.each do |article| %>
+            <h2><%= link_to article.title, article %></h2>
+          <br>
+            <p><%= truncate(article.content, length:225) %></p>
+          <br>
+            <p> Submited <%= time_ago_in_words(article.created_at) %>.</p>
+            <%= link_to "Edit", edit_article_path(article) %>
+            <%= link_to "Delete", articles_path(article), method: :delete, data: { confirm: "You are attempting to delete the post. Click 'Ok' to delete." } %>
+          <% end %>
+          <br>
+        </div>
+    </div>
+</div>
