@@ -14,6 +14,7 @@ gem 'friendly_id', '~> 5.1'
 gem 'devise', '~> 4.1', '>= 4.1.1'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'time_ago_in_words', '~> 0.1.1'
 
 group :development, :test do
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
