@@ -16,6 +16,7 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'bootstrap_form', '~> 2.4'
 gem 'time_ago_in_words', '~> 0.1.1'
+gem 'paperclip', '~> 5.0'
 
 group :development, :test do
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
