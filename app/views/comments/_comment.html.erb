@@ -2,4 +2,8 @@
   <h4><%= comment.name %> Commented:</h4>
   <p><%= comment.body %></p>
 
-<%= link_to 'Delete Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+   <!-- Only a siged in admin can delete comments -->
+<% if user_signed_in? %>
+  <%= link_to 'Delete Comment', [comment.article, comment],
+   method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
