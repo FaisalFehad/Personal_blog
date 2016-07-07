@@ -12,8 +12,7 @@
             <!-- only signed in admin can see the edit and delete links  -->
             <% if user_signed_in? %>
               <%= link_to "Edit", edit_article_path(article) %>
-              <%= link_to "Delete", articles_path(article), method: :delete,
-               data: { confirm: "You are attempting to delete the post. Click 'Ok' to delete." } %>
+              <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "You are attempting to delete the post. Click 'Ok' to delete." } %>
             <% end %>
           <% end %>
           <br>
