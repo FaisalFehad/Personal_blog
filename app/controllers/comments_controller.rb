@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!, except: [:create]
 
   def create
     @article = Article.friendly.find(params[:article_id])
