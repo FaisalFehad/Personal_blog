@@ -1,17 +1,16 @@
 <div class="container">
     <div class="row">
-        <h1><%= @article.title %></h1>
-      <p>
-        <%= markdown(@article.content) %>
-      </p>
-      <br>
+      <h1><%= @article.title %></h1>
+          <%= image_tag @article.image.url(:article) %>
+       <p><%= markdown(@article.content) %></p>
+    <br>
       <hr>
       <% if @article.comments.count == 0 %>
-        <h3> Be the first to comment on the post. </h3>
+        <h3> Be the first to comment. </h3>
       <% else %>
-      <h3><%= pluralize @article.comments.count, 'comment' %></h3>
+        <h3><%= pluralize @article.comments.count, 'comment' %></h3>
       <% end %>
-
+    <br>
       <%= render @article.comments %>
       <%= render 'comments/form' %>
     <br>
