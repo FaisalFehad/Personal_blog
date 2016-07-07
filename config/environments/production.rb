@@ -15,14 +15,14 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Sendgrid/Heroku
-  config.action_mailer.default_url_options = {  host: "https://personal-blog22.herokuapp.com/" }
+  config.action_mailer.default_url_options = {  host: "https://murmuring-depths-26128.herokuapp.com/" }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings   = {
     address:              'smtp.sendgrid.net',
     port:                 '587',
     authentication:       :plain,
-    user_name:            'app52905832@heroku.com',
-    password:             'i1jqf0il2902',
+    user_name:            'app53186052@heroku.com',
+    password:             'zt0uuise7685',
     domain:               'heroku.com',
     enable_starttls_auto:  true
   }
