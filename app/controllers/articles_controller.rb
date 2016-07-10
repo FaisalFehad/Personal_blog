@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @Articles = Article.all
+    @Articles = Article.all.order('created_at DESC')
+
   end
 
   def new
