@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
 
   def index
     @Articles = Article.all.order('created_at DESC')
-
   end
 
   def new

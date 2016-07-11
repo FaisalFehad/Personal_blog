@@ -13,6 +13,14 @@
      <p><%= markdown(@article.content) %></p>
     <br>
     <hr>
+    <p>
+      <%= "#{time_ago_in_words(@article.created_at)} ago " %>
+      <%= "By #{@article.user.username}" %> <br>
+      <small>
+      <%= "#{@article.user.username} is #{@article.user.bio}" %>
+      </small>
+    </p>
+      <hr>
     <% if @article.comments.count == 0 %>
       <h3> Be the first to comment. </h3>
     <% else %>
