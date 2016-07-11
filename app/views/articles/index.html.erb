@@ -10,7 +10,9 @@
             <p><%= truncate(article.content, length:225) %></p>
           <br>
             <p><small>
-               Submited <%= time_ago_in_words(article.created_at) %> ago
+               Published in <%= time_ago_in_words(article.created_at) %> ago
+               <br>
+               By <%= article.user.username %>
             </small></p>
             <br>
             <!-- only signed in admin can see the edit and delete links  -->

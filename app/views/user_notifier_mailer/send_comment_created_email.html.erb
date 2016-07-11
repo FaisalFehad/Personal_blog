@@ -1,7 +1,7 @@
 <h1> <%= " The user #{@comment.name} commented on your post " %> </h1>
 <!-- The name of the user who left the comment says (the 65 character of the comment body) on your article (the article title) -->
-<p> <%= "#{@comment.name} Says #{truncate@comment.body, length: 65} on your post #{@article.title}" %> </p>
-
+<p> <%= "#{@comment.name} Says #{truncate@comment.body, length: 65}
+                            on your post #{@article.title}" %> </p>
 
  <p><%= link_to "Go to the article?", @article %></p>
 <br>
