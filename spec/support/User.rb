@@ -3,19 +3,11 @@ require 'rails_helper'
 class User
   include Capybara::DSL
 
-  def sign_up
-    visit('/users/sign_up/')
-    fill_in('Email', with:'agmin@agmin.com')
-    fill_in('Password', with:'Password12')
-    fill_in('Password confirmation', with:'Password12')
-    click_on('Sign up')
-  end
-
   def sign_in
     visit('/users/sign_in/')
-    fill_in('Email', with:'agmin@agmin.com')
-    fill_in('Password', with:'Password12')
-    click_on('Log in')
+    fill_in('Email', with:'rubyblog2016@outlook.com')
+    fill_in('Password', with:'WeakPass')
+    click_on('Sign in')
   end
 
   def logout
