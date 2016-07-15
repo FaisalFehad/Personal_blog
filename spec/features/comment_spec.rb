@@ -5,19 +5,16 @@ require_relative '../support/ArticelForm.rb'
 # The User class to use login methods
 require_relative '../support/User.rb'
 
-
 feature "Can leave comments on articles" do
   # initializing the classes
   let(:article_form) {ArticleForm.new}
   let(:user) {User.new}
 
-  scenario 'Visit the home page, post an article then edit it' do
-    # A user needs to have an account to be able to post articles
-    user.sign_up
-    # Create an article
+  scenario 'Admin signs in, creates an article' do
+    # signs in as admin
+    user.sign_in
+    # Creates an article
     article_form.create_an_article
-    # View the article
-    #visit('/articles/my-title/')
     # leave a comment
     fill_in('Name', with:'My name')
     fill_in('Comment', with: 'comment')

@@ -9,7 +9,7 @@ class ArticleForm
   end
 
   def create_an_article(params = {})
-    click_on('New Article')
+    click_on('New Article', visible: false)
     fill_in('Title', with: params.fetch(:title, "My title"))
     fill_in('Content', with: "My content")
     click_on('Create Article')
