@@ -10,7 +10,6 @@ feature "Articles can be posted and edited" do
   let(:article_form) {ArticleForm.new}
   let(:user) {User.new}
 
-
   scenario 'Visit the home page, post an article then edit it' do
     # Admin needs to sigin as admin before poting an article
     user.sign_in
