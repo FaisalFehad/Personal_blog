@@ -12,8 +12,10 @@ feature "Articles can be posted and edited" do
 
 
   scenario 'Visit the home page, post an article then edit it' do
-    # Sign up first (Will be loged in after sign up)
-    user.sign_up
+    # Admin needs to sigin as admin before poting an article
+    user.sign_in
+    # Sign in confirmation notice
+    expect(page).to have_text("Signed in successful")
     # Create an article first
     article_form.create_an_article
     # Then Edits the article
