@@ -3,7 +3,7 @@
       <%= bootstrap_form_for ([@article, @article.comments.build]) do |f| %>
           <%= f.text_field :name %>
         <br>
-          <%= f.text_area :body, label: 'Comment'  %>
+          <%= f.text_area :body, label: 'Comment' %>
         <br>
           <%= f.submit "Post" %>
      <% end %>

@@ -15,8 +15,10 @@ class ArticlesController < ApplicationController
         redirect_to @article
         @follower = Follower.all
         UserNotifierMailer.send_article_created_email(@follower, @article).deliver
+        flash[:notice] = "The article has been created.Followers will shortly get an notiflcation email about it."
       else
         render 'new'
+        flash[:alart] = "Article could not be created. Please make sure it has a valid title and contecnt you have the necessary permission then try again."
       end
     end
 
@@ -32,6 +34,7 @@ class ArticlesController < ApplicationController
       @article = Article.find_by_slug(params[:id])
       if @article.update(article_params)
         redirect_to @article
+        flash[:notice] = "The article has been updated."
       else
         render 'edit'
       end
@@ -39,8 +42,13 @@ class ArticlesController < ApplicationController
 
     def destroy
       @article = Article.find_by_slug(params[:id])
-      @article.destroy
       redirect_to root_path
+
+      if @article.destroy
+        flash[:notice] = "The article has been deleted."
+      else
+        flash[:alart] = "The article could not be deleted. Please make that you have the necessary permission and try again."
+      end
     end
 
     private
