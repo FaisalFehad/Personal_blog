@@ -10,6 +10,7 @@ class ArticleForm
 
   def create_an_article(params = {})
     click_on('New Article', visible: false)
+    attach_file('article[image]', "#{Rails.root}/app/assets/images/coffee.JPG")
     fill_in('Title', with: params.fetch(:title, "My title"))
     fill_in('Content', with: "My content")
     click_on('Create Article')
